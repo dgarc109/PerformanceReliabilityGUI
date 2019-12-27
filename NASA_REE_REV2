@@ -1,0 +1,498 @@
+function varargout = REE_GUI_REV2(varargin)
+% REE_GUI_REV2 MATLAB code for REE_GUI_REV2.fig
+%      REE_GUI_REV2, by itself, creates a new REE_GUI_REV2 or raises the existing
+%      singleton*.
+%
+%      H = REE_GUI_REV2 returns the handle to a new REE_GUI_REV2 or the handle to
+%      the existing singleton*.
+%
+%      REE_GUI_REV2('CALLBACK',hObject,eventData,handles,...) calls the local
+%      function named CALLBACK in REE_GUI_REV2.M with the given input arguments.
+%
+%      REE_GUI_REV2('Property','Value',...) creates a new REE_GUI_REV2 or raises the
+%      existing singleton*.  Starting from the left, property value pairs are
+%      applied to the GUI before REE_GUI_REV2_OpeningFcn gets called.  An
+%      unrecognized property name or invalid value makes property application
+%      stop.  All inputs are passed to REE_GUI_REV2_OpeningFcn via varargin.
+%
+%      *See GUI Options on GUIDE's Tools menu.  Choose "GUI allows only one
+%      instance to run (singleton)".
+%
+% See also: GUIDE, GUIDATA, GUIHANDLES
+
+% Edit the above text to modify the response to help REE_GUI_REV2
+
+% Last Modified by GUIDE v2.5 23-Sep-2019 19:21:50
+
+% Begin initialization code - DO NOT EDIT
+gui_Singleton = 1;
+gui_State = struct('gui_Name',       mfilename, ...
+                   'gui_Singleton',  gui_Singleton, ...
+                   'gui_OpeningFcn', @REE_GUI_REV2_OpeningFcn, ...
+                   'gui_OutputFcn',  @REE_GUI_REV2_OutputFcn, ...
+                   'gui_LayoutFcn',  [] , ...
+                   'gui_Callback',   []);
+if nargin && ischar(varargin{1})
+    gui_State.gui_Callback = str2func(varargin{1});
+end
+
+if nargout
+    [varargout{1:nargout}] = gui_mainfcn(gui_State, varargin{:});
+else
+    gui_mainfcn(gui_State, varargin{:});
+end
+% End initialization code - DO NOT EDIT
+
+
+% --- Executes just before REE_GUI_REV2 is made visible.
+function REE_GUI_REV2_OpeningFcn(hObject, eventdata, handles, varargin)
+% This function has no output args, see OutputFcn.
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+% varargin   command line arguments to REE_GUI_REV2 (see VARARGIN)
+
+% Choose default command line output for REE_GUI_REV2
+handles.output = hObject;
+
+% Update handles structure
+guidata(hObject, handles);
+
+
+axes(handles.axes1);
+im=imread('nodeRBD.jpg');
+imshow(im);
+
+
+axes(handles.axes2);
+im2=imread('parallelnode.jpg');
+imshow(im2);
+
+
+% UIWAIT makes REE_GUI_REV2 wait for user response (see UIRESUME)
+% uiwait(handles.figure1);
+
+
+% --- Outputs from this function are returned to the command line.
+function varargout = REE_GUI_REV2_OutputFcn(hObject, eventdata, handles) 
+% varargout  cell array for returning output args (see VARARGOUT);
+% hObject    handle to figure
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Get default command line output from handles structure
+varargout{1} = handles.output;
+
+
+
+function Processor_Callback(hObject, eventdata, handles)
+% hObject    handle to Processor (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of Processor as text
+%        str2double(get(hObject,'String')) returns contents of Processor as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function Processor_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to Processor (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function Memory_Callback(hObject, eventdata, handles)
+% hObject    handle to Memory (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of Memory as text
+%        str2double(get(hObject,'String')) returns contents of Memory as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function Memory_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to Memory (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function memControl_Callback(hObject, eventdata, handles)
+% hObject    handle to memControl (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of memControl as text
+%        str2double(get(hObject,'String')) returns contents of memControl as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function memControl_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to memControl (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function NodeControl_Callback(hObject, eventdata, handles)
+% hObject    handle to NodeControl (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of NodeControl as text
+%        str2double(get(hObject,'String')) returns contents of NodeControl as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function NodeControl_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to NodeControl (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function nonVolatileMem_Callback(hObject, eventdata, handles)
+% hObject    handle to nonVolatileMem (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of nonVolatileMem as text
+%        str2double(get(hObject,'String')) returns contents of nonVolatileMem as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function nonVolatileMem_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to nonVolatileMem (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function pcibus_Callback(hObject, eventdata, handles)
+% hObject    handle to pcibus (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of pcibus as text
+%        str2double(get(hObject,'String')) returns contents of pcibus as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function pcibus_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to pcibus (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function Myrinet_Callback(hObject, eventdata, handles)
+% hObject    handle to Myrinet (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of Myrinet as text
+%        str2double(get(hObject,'String')) returns contents of Myrinet as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function Myrinet_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to Myrinet (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function software_Callback(hObject, eventdata, handles)
+% hObject    handle to software (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of software as text
+%        str2double(get(hObject,'String')) returns contents of software as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function software_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to software (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function Years_Callback(hObject, eventdata, handles)
+% hObject    handle to Years (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of Years as text
+%        str2double(get(hObject,'String')) returns contents of Years as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function Years_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to Years (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in pushbutton1NodeReliability.
+function pushbutton1NodeReliability_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton1NodeReliability (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+process_input = str2double(get(handles.Processor,'string'));      %define all your inputs here
+mem_input = str2double(get(handles.Memory,'string'));
+mem_control=str2double(get(handles.memControl,'string'));
+node_control=str2double(get(handles.NodeControl,'string'));
+non_vol_mem=str2double(get(handles.nonVolatileMem,'string'));
+pci_bus=str2double(get(handles.pcibus,'string'));
+my_net=str2double(get(handles.Myrinet,'string'));
+my_netnode=str2double(get(handles.Myrinetnode,'string'));
+soft_ware=str2double(get(handles.software,'string'));
+years=str2double(get(handles.Years,'string'));
+nodes=str2double(get(handles.NewSysReliability,'string'));
+
+
+yearstomilhours = conversion(years);
+
+NodeReliability = Solution(yearstomilhours,nodes,process_input,mem_input,mem_control,node_control,non_vol_mem,pci_bus,my_net,soft_ware);
+ReliabilityofSys = Syssolution(NodeReliability, my_netnode,yearstomilhours,nodes,process_input,mem_input,mem_control,node_control,non_vol_mem,pci_bus,my_net,soft_ware);
+parallelnodes = parallelSolution(my_netnode,yearstomilhours,nodes,process_input,mem_input,mem_control,node_control,non_vol_mem,pci_bus,my_net,soft_ware);
+
+
+
+set(handles.textNodeReliabilityOutput,'string', NodeReliability); %display node reliability
+
+set(handles.SysReliabiltiy,'string',ReliabilityofSys);
+
+set(handles.millionhours,'string',yearstomilhours); %display conversion from years to million hours per X years
+
+
+
+
+
+
+
+
+%function to convert years to million hours per X years
+function yearstomilhours = conversion(years)
+yearstomilhours = ((8760*years)/1000000);
+
+
+
+%function to calculate node Reliability
+function NodeReliability = Solution(yearstomilhours,nodes,process_input,mem_input,mem_control,node_control,non_vol_mem,pci_bus,my_net,soft_ware)        %calculate the total reliability here
+
+NodeReliability=(exp((-(mem_input+mem_control+node_control+non_vol_mem+pci_bus+soft_ware)*yearstomilhours)))*(1-(1-exp(-2*process_input*yearstomilhours)))*(1-(1-exp(-2*my_net*yearstomilhours)));
+
+%function to find reliability of system
+function ReliabilityofSys = Syssolution(NodeReliability, my_netnode,yearstomilhours,nodes,process_input,mem_input,mem_control,node_control,non_vol_mem,pci_bus,my_net,soft_ware)
+
+
+ReliabilityofSys = (exp(-yearstomilhours*my_netnode))*(1-(1-NodeReliability)^4)*(((NodeReliability^3)+(3*(NodeReliability^2))*(1-NodeReliability))); 
+
+
+%function to find the reliability of all parallel components
+function parallelnodes = parallelSolution(my_netnode,yearstomilhours,nodes,process_input,mem_input,mem_control,node_control,non_vol_mem,pci_bus,my_net,soft_ware)
+
+parallelnodes = (1-(1-exp(-2*mem_input*yearstomilhours)))*(1-(1-exp(-2*mem_control*yearstomilhours)))*(1-(1-exp(-2*node_control*yearstomilhours)))*(1-(1-exp(-2*non_vol_mem*yearstomilhours)))*(1-(1-exp(-2*pci_bus*yearstomilhours)))*(1-(1-exp(-2*soft_ware*yearstomilhours)))*(1-(1-exp(-2*process_input*yearstomilhours)))*(1-(1-exp(-2*my_net*yearstomilhours)));
+
+
+function newSysReliability=newSolution(parallelnodes, my_netnode,yearstomilhours,nodes,process_input,mem_input,mem_control,node_control,non_vol_mem,pci_bus,my_net,soft_ware)
+
+newSysReliability = (exp(-yearstomilhours*my_netnode))*(1-(1-parallelnodes)^4)*((parallelnodes^3)+(3*parallelnodes^2)*(1-parallelnodes));  
+
+
+
+function NewSysReliability_Callback(hObject, eventdata, handles)
+% hObject    handle to NewSysReliability (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of NewSysReliability as text
+%        str2double(get(hObject,'String')) returns contents of NewSysReliability as a double
+
+
+
+
+
+
+
+% --- Executes during object creation, after setting all properties.
+function NewSysReliability_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to NewSysReliability (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+
+function millionhours_Callback(hObject, eventdata, handles)
+% hObject    handle to millionhours (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of millionhours as text
+%        str2double(get(hObject,'String')) returns contents of millionhours as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function millionhours_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to millionhours (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in tab1.
+function tab1_Callback(hObject, eventdata, handles)
+% hObject    handle to tab1 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+set(handles.panel1,'visible','on')
+set(handles.panel2,'visible','off')
+
+
+% --- Executes on button press in tab2.
+function tab2_Callback(hObject, eventdata, handles)
+% hObject    handle to tab2 (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+set(handles.panel1,'visible','off')
+set(handles.panel2,'visible','on')
+
+
+
+
+function Myrinetnode_Callback(hObject, eventdata, handles)
+% hObject    handle to Myrinetnode (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+% Hints: get(hObject,'String') returns contents of Myrinetnode as text
+%        str2double(get(hObject,'String')) returns contents of Myrinetnode as a double
+
+
+% --- Executes during object creation, after setting all properties.
+function Myrinetnode_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to Myrinetnode (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+% Hint: edit controls usually have a white background on Windows.
+%       See ISPC and COMPUTER.
+if ispc && isequal(get(hObject,'BackgroundColor'), get(0,'defaultUicontrolBackgroundColor'))
+    set(hObject,'BackgroundColor','white');
+end
+
+
+% --- Executes on button press in pushbutton4_estimatenodereliability.
+function pushbutton4_estimatenodereliability_Callback(hObject, eventdata, handles)
+% hObject    handle to pushbutton4_estimatenodereliability (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    structure with handles and user data (see GUIDATA)
+
+process_input = str2double(get(handles.Processor,'string'));      %define all your inputs here
+mem_input = str2double(get(handles.Memory,'string'));
+mem_control=str2double(get(handles.memControl,'string'));
+node_control=str2double(get(handles.NodeControl,'string'));
+non_vol_mem=str2double(get(handles.nonVolatileMem,'string'));
+pci_bus=str2double(get(handles.pcibus,'string'));
+my_net=str2double(get(handles.Myrinet,'string'));
+my_netnode=str2double(get(handles.Myrinetnode,'string'));
+soft_ware=str2double(get(handles.software,'string'));
+years=str2double(get(handles.Years,'string'));
+nodes=str2double(get(handles.NewSysReliability,'string'));
+
+
+yearstomilhours = conversion(years);
+
+
+NodeReliability = Solution(yearstomilhours,nodes,process_input,mem_input,mem_control,node_control,non_vol_mem,pci_bus,my_net,soft_ware);
+parallelnodes = parallelSolution(my_netnode,yearstomilhours,nodes,process_input,mem_input,mem_control,node_control,non_vol_mem,pci_bus,my_net,soft_ware);
+
+
+newSysReliability=newSolution(parallelnodes, my_netnode,yearstomilhours,nodes,process_input,mem_input,mem_control,node_control,non_vol_mem,pci_bus,my_net,soft_ware);
+set(handles.Nodes_SysReliability,'string',parallelnodes);
+set (handles.NewSysReliability,'string',newSysReliability); %new parallel sys reliability
+
+
+% --- Executes during object creation, after setting all properties.
+function Nodes_SysReliability_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to Nodes_SysReliability (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
+
+
+% --- Executes during object creation, after setting all properties.
+function textNodeReliabilityOutput_CreateFcn(hObject, eventdata, handles)
+% hObject    handle to textNodeReliabilityOutput (see GCBO)
+% eventdata  reserved - to be defined in a future version of MATLAB
+% handles    empty - handles not created until after all CreateFcns called
